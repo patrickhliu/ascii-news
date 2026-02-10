@@ -9,6 +9,7 @@ export interface GuardianResponse {
     edition: GuardianEdition;
     orderBy: string;
     results: any;
+    response: any;
 }
 
 export interface GuardianResult {

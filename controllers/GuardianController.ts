@@ -7,13 +7,30 @@ dotenv.config();
 export async function GetUnitedStates(req: Request, res: Response) {
     try {
         const apiKey = process.env.GUARDIAN_API_KEY;
-        console.log(apiKey);
 
         const response = await axios.get<GuardianResponse>(
-            `https://content.guardianapis.com/us-news?api-key=${apiKey}&show-fields=headline,thumbnail&page-size=20`,
+            `https://content.guardianapis.com/us-news?api-key=${apiKey}&show-fields=headline,thumbnail,body&page-size=20`,
         );
 
-        res.json(response.data);
+        const formattedOutput: any = [];
+        const formattedArticles: any = [];
+
+        for (let o of response.data.response.results) {
+            const formattedDate = new Date(o.webPublicationDate);
+            const formattedDate2 = formattedDate.toLocaleString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+            });
+
+            let newObj = { ...o, webPublicationDateStr: formattedDate2 };
+            formattedArticles.push(newObj);
+        }
+
+        res.json({ ...response.data.response, results: formattedArticles });
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch news' });
     }
