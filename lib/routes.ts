@@ -1,6 +1,6 @@
 import express from 'express';
-import { SayHello } from '../controllers/BaseController.ts';
+import { GetUnitedStates } from '../controllers/GuardianController.ts';
 const router = express.Router();
 
-router.post('/say-hello', SayHello);
+router.get('/us-news', GetUnitedStates);
 export default router;
