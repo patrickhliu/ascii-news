@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import Header from '../components/Header';
-//import { useSearchParams } from 'react-router-dom';
 import { QueryUsNews } from '../lib/api';
 import ArticleBox from '../components/ArticleBox';
 import Stack from '@mui/material/Stack';

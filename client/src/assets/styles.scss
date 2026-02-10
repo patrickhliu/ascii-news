@@ -3,10 +3,11 @@
     border: 1px solid #d3d3d3;
     border-radius: 15px;
     position: relative;
-    width: 80%;
-    left: 10%;
+    width: 70%;
+    left: 15%;
     padding: 20px;
     border: 1px solid #111;
+    background-color: #f9f7f1;
 
     .headline {
         font-family: 'Courier New', monospace;
@@ -18,6 +19,12 @@
         letter-spacing: -0.5px;
     }
 
+    .byline {
+        font-family: 'Courier New', monospace;
+        font-size: 1.1rem;
+        color: #222;
+    }
+
     .newspaper {
         font-family: 'Courier New', monospace;
         color: #222;
@@ -26,6 +33,7 @@
     }
 
     .subheadline {
+        font-family: 'Courier New', monospace;
         font-size: 1.25rem;
         font-style: italic;
         color: #555;
@@ -34,19 +42,14 @@
 
     /* Multi-column layout */
     .article-columns {
+        font-family: 'Courier New', monospace;
         column-count: 2;
         column-gap: 2rem;
         column-rule: 1px solid #ddd;
     }
 
-    .byline {
-        font-size: 0.9rem;
-        font-style: italic;
-        color: #666;
-        margin-bottom: 1rem;
-    }
-
     .drop-cap::first-letter {
+        font-family: 'Courier New', monospace;
         float: left;
         font-size: 4rem;
         line-height: 0.8;

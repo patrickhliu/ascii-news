@@ -4,11 +4,12 @@ import DOMPurify from 'dompurify';
 
 interface Args {
     htmlString: string;
+    classString: string;
 }
 
-const HtmlRaw: React.FC<Args> = ({ htmlString }) => {
+const HtmlRaw: React.FC<Args> = ({ htmlString, classString }) => {
     const cleanHtml = DOMPurify.sanitize(htmlString);
-    return <>{parse(cleanHtml)}</>;
+    return <div className={classString}>{parse(cleanHtml)}</div>;
 };
 
 export default HtmlRaw;

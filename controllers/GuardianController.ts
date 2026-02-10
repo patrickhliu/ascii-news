@@ -9,7 +9,7 @@ export async function GetUnitedStates(req: Request, res: Response) {
         const apiKey = process.env.GUARDIAN_API_KEY;
 
         const response = await axios.get<GuardianResponse>(
-            `https://content.guardianapis.com/us-news?api-key=${apiKey}&show-fields=headline,thumbnail,body&page-size=20`,
+            `https://content.guardianapis.com/us-news?api-key=${apiKey}&show-fields=headline,standfirst,trailText,byline,bylineHtml,body,bodyText,main,thumbnail&page-size=20`,
         );
 
         const formattedOutput: any = [];

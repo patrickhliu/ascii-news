@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { AppBar, Toolbar, IconButton, Drawer, Box } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+//import MenuIcon from '@mui/icons-material/Menu';
 import MenuAccordionFlat from './AccordionFlat';
 import styles from '../../index.module.css';
 

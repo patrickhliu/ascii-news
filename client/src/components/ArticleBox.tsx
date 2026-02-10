@@ -1,19 +1,9 @@
 import React from 'react';
-import Box from '@mui/material/Box';
+//import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
 import HtmlRaw from './HtmlRaw';
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: (theme.vars ?? theme).palette.text.secondary,
-    ...theme.applyStyles('dark', {
-        backgroundColor: '#1A2027',
-    }),
-}));
+import Divider from '@mui/material/Divider';
+import StackSocialMedia from './StackSocialMedia';
 
 interface Args {
     article: any;
@@ -23,8 +13,13 @@ const ArticleBox: React.FC<Args> = ({ article }) => {
     return (
         <div className="article-box">
             <div className="headline">{article.fields.headline}</div>
-            <HtmlRaw htmlString={article.fields.body}></HtmlRaw>
-            <span>{article.webPublicationDateStr}</span>
+            <p className="byline mt-0">{article.webPublicationDateStr}</p>
+            <HtmlRaw classString="byline mt-2 mb-5" htmlString={article.fields.bylineHtml}></HtmlRaw>
+            <Divider variant="middle" />
+            <HtmlRaw classString="byline text-ellipsis my-5" htmlString={article.fields.standfirst}></HtmlRaw>
+            <Paper elevation={1} sx={{ p: 2, m: 0, '& > *': { m: 0 } }}>
+                <StackSocialMedia article={article}></StackSocialMedia>
+            </Paper>
         </div>
     );
 };
